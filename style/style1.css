@@ -117,11 +117,11 @@
 #shoppingCar .detial-wrap tr td.buy-num .choosenum-handler .countbox {
   vertical-align: middle;
   height: 20px;
-  line-height: 20px;
   width: 30px;
   margin: 0 10px 0 13px;
   border: 1px solid #6190ef;
   border-radius: 2px;
+  text-align: center;
 }
 #shoppingCar .detial-wrap tr td.icon {
   color: #1e1c1c;

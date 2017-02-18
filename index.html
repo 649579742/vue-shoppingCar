@@ -11,6 +11,7 @@
 <body>
 <div id="container">
     <div id="shoppingCar">
+        <h1>{{title1}}</h1>
         <header class="title-wrap"><span class="line-v"></span><span class="title">购物车</span><span
                 class="line-v"></span></header>
         <form>
@@ -20,29 +21,29 @@
                     <th>商品金额</th>
                     <th>商品数量</th>
                     <th>总金额</th>
-                    <th>编辑</th>
+                    <th>编辑</th> 
                 </tr>
-                <tr>
+                <tr v-for="item in productList">
                     <td class="goods-detial-wrap">
                         <div class="checkbox-wrap left"><span class="checkbox checked"></span></div>
                         <div class="goods-detial right">
-                            <div class="good-img left"><img src="img/test.jpg"/></div>
+                            <div class="good-img left"><img src="" v-bind:src="item.productImage"/></div>
                             <div class="good-text left">
-                                <div class="name">喵星人</div>
+                                <div class="name">{{item.productName}}</div>
                                 <dl class="gifts">
                                     <dt>赠送：</dt>
-                                    <dd>萌萌</dd>
+                                    <dd v-for="part in item.parts" v-text="part.partName"></dd>
                                 </dl>
                             </div>
                         </div>
                     </td>
-                    <td class="unitprice">19</td>
+                    <td class="unitprice">{{item.productPrice | money('元')}}</td>
                     <td class="buy-num">
-                        <div class="choosenum-handler"><i class="icon-minus"></i><span class="countbox">2</span><i
+                        <div class="choosenum-handler"><i class="icon-minus"></i><input class="countbox" v-model="item.productQuentity"/><i
                                 class="icon-plus"></i></div>
                         <div class="stock onsell"></div>
                     </td>
-                    <td class="amount">0</td>
+                    <td class="amount">{{item.productPrice*item.productQuentity | forMartMoney}}</td>
                     <td class="icon icon-delete"></td>
                 </tr>
             </table>
@@ -60,5 +61,8 @@
         </form>
     </div>
 </div>
+<script type="text/javascript" src="./node_modules/vue/dist/vue.min.js"></script>
+<script type="text/javascript" src="./node_modules/vue-resource/dist/vue-resource.min.js"></script>
+<script type="text/javascript" src="./js/cart.js"></script>
 </body>
 </html>
