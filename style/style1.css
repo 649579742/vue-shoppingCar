@@ -77,13 +77,13 @@
   color: #ababab;
   margin-right: 15px;
 }
-#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler i {
+#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler a {
   display: inline-block;
   height: 8px;
   width: 8px;
   position: relative;
 }
-#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler i.icon-minus:before {
+#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler a.icon-minus:before {
   content: '';
   display: inline-block;
   position: absolute;
@@ -93,21 +93,21 @@
   height: 2px;
   background-color: #2f3130;
 }
-#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler i.icon-plus:before,
-#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler i.icon-plus:after {
+#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler a.icon-plus:before,
+#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler a.icon-plus:after {
   content: '';
   display: inline-block;
   position: absolute;
   background-color: #2f3130;
 }
-#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler i.icon-plus:before {
+#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler a.icon-plus:before {
   width: 8px;
   height: 2px;
   top: 50%;
   left: 0;
   transform: translateY(-50%);
 }
-#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler i.icon-plus:after {
+#shoppingCar .detial-wrap tr td.buy-num .choosenum-handler a.icon-plus:after {
   top: 0;
   left: 50%;
   transform: translateX(-50%);

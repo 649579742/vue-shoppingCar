@@ -4,6 +4,7 @@ new Vue({
 		title1:"hello vue",
 		productList:[],
 		totalMoney:0,
+		checkAllFlag:false,
 		mockData:{
 		  status: 1,
 		  result: {
@@ -69,6 +70,46 @@ new Vue({
 		cartView:function(){
 			this.productList=this.mockData.result.list;
 			this.totalMoney=this.mockData.result.totalMoney;
+		},
+		changeMoney:function (product,way) {	
+			if(way>0){
+				product.productQuentity++;
+			}else{
+				product.productQuentity--;
+				if(product.productQuentity<1){
+					product.productQuentity=1;
+				}
+			}
+			this.totalPrice();
+		},
+		selectedProduck:function (item) {
+			if(typeof item.checked=='undefined'){
+				this.$set(item,'checked',true);
+			}else{
+				item.checked=!item.checked;
+			}
+			this.totalPrice();
+		},
+		checkAll:function (flag) {
+			this.checkAllFlag=flag;
+			_this=this;
+			this.productList.forEach(function (item,index) {
+				if(typeof item.checked=='undefined'){
+					_this.$set(item,'checked',flag);
+				}else{
+					item.checked=flag;
+				}
+			})
+			this.totalPrice();
+		},
+		totalPrice:function () {
+			// _this=this;
+			// this.totalMoney=0;
+			// this.productList.forEach(function (item,index) {
+			// 	if(item.checked){
+			// 		_this.totalMoney+=item.productPrice*item.productQuentity;
+			// 	}
+			// })
 		}
 	},
 	mounted:function(){
@@ -79,6 +120,18 @@ new Vue({
 	filters:{
 		forMartMoney:function(value){
 			return '￥'+value.toFixed(2)+'元';
+		}
+	},
+	computed:{
+		totalFn:function(){
+			_this=this;
+			this.totalMoney=0;
+			this.productList.forEach(function (item,index) {
+				if(item.checked){
+					_this.totalMoney+=item.productPrice*item.productQuentity;
+				}
+			})
+			return  this.totalMoney;
 		}
 	}
 
