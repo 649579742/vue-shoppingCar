@@ -82,7 +82,7 @@ new Vue({
 					product.productQuentity=1;
 				}
 			}
-			this.totalPrice();
+			
 		},
 		selectedProduck:function (item) {
 			if(typeof item.checked=='undefined'){
@@ -90,7 +90,7 @@ new Vue({
 			}else{
 				item.checked=!item.checked;
 			}
-			this.totalPrice();
+						this.checkAllFlag=false;
 		},
 		checkAll:function (flag) {
 			this.checkAllFlag=flag;
@@ -102,7 +102,7 @@ new Vue({
 					item.checked=flag;
 				}
 			})
-			this.totalPrice();
+			
 		},
 		totalPrice:function () {
 			// _this=this;
