@@ -161,10 +161,13 @@
 #shoppingCar .checkout-wrap .checkout .total-money span.amount {
   color: #ff302e;
 }
-#shoppingCar .checkout-wrap .checkout input {
+#shoppingCar .checkout-wrap .checkout a {
   color: #fff;
   font-size: 20px;
   width: 7em;
   line-height: 1.5;
   border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
 }

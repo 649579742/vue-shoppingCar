@@ -5,6 +5,8 @@ new Vue({
 		productList:[],
 		totalMoney:0,
 		checkAllFlag:false,
+		delBox:false,
+		delProduct:[],
 		mockData:{
 		  status: 1,
 		  result: {
@@ -110,6 +112,15 @@ new Vue({
 			// 		_this.totalMoney+=item.productPrice*item.productQuentity;
 			// 	}
 			// })
+		},
+		delProductFn:function (item) {
+			this.delProduct=item;
+			this.delBox=true;
+		},
+		del:function () {
+			var index=this.productList.indexOf(this.delProduct);
+			this.productList.splice(index,1);
+			this.delBox=false;
 		}
 	},
 	mounted:function(){
